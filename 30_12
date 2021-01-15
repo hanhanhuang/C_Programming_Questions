@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include<stdlib.h>
+
+int main()
+{ 
+	int arr1[6], arr2[6];
+	int odd_dou[6];
+		
+	for (int i=0; i<6; i++){
+		scanf("%d", &arr1[i]);
+	}
+ 	for (int i=0; i<6; i++){
+		scanf("%d", &arr2[i]);
+	}
+	
+	for (int i=0; i<6; i++){
+		if((arr1[i]+arr2[i])%2==0) odd_dou[i] = 0;
+		else odd_dou[i] = 1;
+	}
+	
+	for (int i=0; i<6; i++){
+		printf("%d ", odd_dou[i]);
+	}
+ return 0;  
+}
