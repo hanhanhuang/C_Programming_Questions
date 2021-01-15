@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include<stdlib.h>
+
+int main()
+{ 
+	float time;
+	
+	scanf("%f", &time);
+	printf("\n");
+	
+	if (time > 180 && time<= 300) time = time*0.9;
+	else if (time > 301 && time<= 600) time = time*0.8;
+	else if (time > 600) time = time*0.7;
+	
+	time = time*0.16;
+	
+	printf("%.2f", time);
+	
+ return 0;  
+} 
