@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include<stdlib.h>
+#include<math.h>
+
+int main()
+{ 
+	float x[3], y[3];
+	float midpointX[2], midpointY[2];
+	float nx[2], ny[2];
+	float c[2];
+	
+	for(int i=0; i<3; i++){
+		scanf("%f %f", &x[i], &y[i]);
+	}
+	
+	//nx[0] = x[1] - x[0];
+	//ny[0] = y[1] - y[0];
+	for(int i=0; i<2; i++){
+		nx[i] = x[i+1] - x[i];
+		ny[i] = y[i+1] - y[i];
+	}
+	
+	//midpointX[0] = (x[0] + x[1]) / 2;
+	//midpointY[0] = (y[0] + y[1]) / 2;
+	for(int i=0; i<2; i++){
+		midpointX[i] = (x[i] + x[i+1]) / 2;
+		midpointY[i] = (y[i] + y[i+1]) / 2;
+	}
+	
+	//c[0] = nx[0] * midpointX[0] + ny[0] * midpointY[0];
+	for(int i=0; i<2; i++){
+		c[i] = nx[i] * midpointX[i] + ny[i] * midpointY[i];
+	}
+	
+	//克拉瑪
+	float tri = nx[0] * ny[1] - nx[1] * ny[0];
+	float tri_X = c[0] * ny[1] - c[1] * ny[0];
+	float tri_Y = nx[0] * c[1] - nx[1] * c[0];
+	
+	//圓心 
+	float cx = tri_X / tri;
+	float cy = tri_Y / tri;
+	
+	//半徑
+	float r2 = pow(x[0] - cx, 2) + pow(y[0] - cy, 2);
+	float r = sqrt(r2);
+	
+	printf("圓心：%.3f %.3f\n", cx, cy);
+	printf("半徑：%.3f", r);
+	
+	
+ return 0;  
+}
