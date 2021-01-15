@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include<stdlib.h>
+
+int main()
+{ 
+	int man, deer;
+	int n, m;
+	
+	scanf("%d %d", &n, &m);
+	
+	man = n*2 - m/2;
+	deer = m/2 - n; 
+	
+	printf("%d %d", man, deer);
+ 
+ return 0;  
+} 
