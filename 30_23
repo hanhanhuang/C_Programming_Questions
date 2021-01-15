@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include<stdlib.h>
+int main()
+{
+    char s[80]; 
+    int i=0;
+    int odd = 0, dou = 0;
+    
+    scanf("%s", s);
+    
+    while(s[i] != '\0')
+    {
+		
+       int ss = s[i] - '0';
+       
+       if((i + 1) % 2 != 0 )
+        	odd += ss;
+       if((i + 1) % 2 == 0 )
+        	dou += ss; 
+          
+       i++;
+    }
+    odd = abs(odd-dou);
+    
+    if(odd % 11 == 0)
+    	printf("%s是11的倍數", s);
+    else
+      printf("%s不是11的倍數", s);
+	
+    return 0;
+}
