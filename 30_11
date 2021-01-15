@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include<stdlib.h>
+
+int main()
+{ 
+	int people;
+ 	scanf("%d", &people);
+ 	
+ 	int start_h[people], start_m[people];
+ 	int end_h[people], end_m[people];
+ 	int dollar[people], day[people];
+ 	int time[people];
+ 	int total[people];
+ 	
+ 	for (int i=0; i<people; i++){
+ 		scanf("%d %d %d %d %d %d", &start_h[i], &start_m[i], &end_h[i], &end_m[i], &dollar[i], &day[i]);
+ 		if(end_m[i] > start_m[i]) { time[i] = end_h[i] - start_h[i] + 1; }
+ 		else { time[i] = end_h[i] - start_h[i]; }
+ 		
+ 		total[i] = time[i]*dollar[i]*day[i];
+ 		
+ 		//printf("%d %d", i, time[i]);
+ 		//printf("%d", time[i]*dollar[i]*day[i]);
+	}
+ 	for (int i=0; i<people; i++){
+ 		printf("%d\n", total[i]);
+ 	}
+ 	
+ return 0;  
+}
