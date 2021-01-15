@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include<stdlib.h>
+
+int main()
+{ 
+	int n1, n2, n12;
+	int m;
+	
+	scanf("%d %d", &n1, &n2);
+	printf("\n");
+	
+	if (n1 > n2)
+		n12 = n2;
+	else 
+		n12 = n1;
+		
+	for (int i=1; i<=n12; i++){
+		if((n1 % i == 0) && (n2 % i == 0))
+			m = i;
+	}
+	
+	printf("%d", m);
+	
+ return 0;  
+} 
