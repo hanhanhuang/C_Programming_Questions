@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include<stdlib.h>
+
+int main()
+{ 
+	int dollar;
+	float sum, unsum;
+	
+	scanf("%d", &dollar);
+	
+	if (dollar<=120){ sum=2.10; unsum=2.10;} 
+	else if (dollar<=330) { sum=3.02; unsum=2.68; }
+	else if (dollar<=500) { sum=4.39; unsum=3.61; } 
+	else if (dollar<=700) { sum=4.97; unsum=4.01; } 
+	else { sum=5.63; unsum=4.50; }
+	
+	printf("\nSummer months:%.2f\n\n", sum*dollar);
+	printf("Non-Summer months:%.2f", unsum*dollar);	
+ 
+ return 0;  
+} 
