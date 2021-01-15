@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include<stdlib.h>
+
+int main()
+{ 
+	int egg;
+	
+	scanf("%d", &egg);
+	printf("\n");
+	
+	for (int i=1; i<=egg; i++){
+		if((i % 7 == 2) && (i % 9 == 2) && (i % 3 == 2))
+			printf("%d\n", i);
+	}
+	
+ return 0;  
+}
