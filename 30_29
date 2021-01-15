@@ -1,0 +1,76 @@
+#include <stdio.h>
+#include<stdlib.h>
+#include<math.h>
+
+int main()
+{
+	int n, i;
+	scanf("%d", &n);
+	
+	int num[n], ADD_compar[n], NUM_compar[n];
+	for(i=0; i<n; i++){
+		scanf("%d", &num[i]);
+		ADD_compar[i] = 0;
+	}
+	for (i=0; i<n; i++){
+		NUM_compar[i] = num[i];
+	}
+	
+	//相加 
+	for(i=0; i<n; i++){
+		while(num[i]>0){
+			ADD_compar[i] += num[i] % 10;
+			num[i] /= 10;
+		}
+		//printf("%d\n", ADD_compar[i]);
+	}
+	
+	
+	int j, temp, temp2;
+	//泡沫排序 大小 相加後大小 
+	for (i=0; i<n-1; i++){
+		for (j=0; j<n-i-1; j++){
+			if (NUM_compar[j] > NUM_compar[j+1]){
+				temp = NUM_compar[j];
+				NUM_compar[j] = NUM_compar[j+1];
+				NUM_compar[j+1] = temp;
+				
+				temp2 = ADD_compar[j];
+				ADD_compar[j] = ADD_compar[j+1];
+				ADD_compar[j+1] = temp2;
+			}
+		}
+	}
+	
+	
+	//printf("\n");
+	
+	for(i=0; i<n; i++){
+		//printf("NUM_compar = %d ADD_compar = %d\n", NUM_compar[i], ADD_compar[i]);
+	}
+	
+	printf("\n");
+	
+	
+	//泡沫排序 相加後大小 
+	for (i=0; i<n-1; i++){
+		for (j=0; j<n-i-1; j++){
+			if (ADD_compar[j] > ADD_compar[j+1]){
+				temp2 = ADD_compar[j];
+				ADD_compar[j] = ADD_compar[j+1];
+				ADD_compar[j+1] = temp2;
+				
+				temp = NUM_compar[j];
+				NUM_compar[j] = NUM_compar[j+1];
+				NUM_compar[j+1] = temp;
+			}
+		}
+	}
+	
+	
+	for(i=0; i<n; i++){
+		printf("%d ", NUM_compar[i]);
+	}
+	
+	return 0; 
+}
