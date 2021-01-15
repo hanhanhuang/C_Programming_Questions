@@ -1,0 +1,59 @@
+#include <stdio.h>
+#include<stdlib.h>
+
+
+
+int main()
+{ 
+	int i, j, people, n=0;
+	int appear[100], voice[100], talk[100], act[100];
+	float total[100], compar[100];
+	int  index[100];
+	
+	scanf("%d", &people);
+	
+	for (i=0; i<people; i++){
+		printf("%d ", i+1);
+		scanf("%d %d %d %d", &appear[i], &voice[i], &talk[i], &act[i]);
+		total[i] = (appear[i]+voice[i])*0.3 + (talk[i]+act[i])*0.2;
+	}
+	for (i=0; i<people; i++){
+		compar[i] = total[i];
+		//printf("%.1f", compar[i]);
+	}
+	
+	//泡沫排序
+	for (j=0; j<people; j++){
+		for (i=0; i<people-j; i++){
+			if (compar[i]<compar[i+1]){
+				n = compar[i];
+				compar[i] = compar[i+1];
+				compar[i+1] = n;
+			}
+		}
+	}
+
+	//printf("\n");
+	for (i=0; i<people; i++){
+		for (j=0; j<people; j++){
+			if (total[j] == compar[i]){
+				//printf("%d-->%d\n", j+1, total[j]);
+				total[j] = 0;
+				break;
+			}
+		}
+		index[i] = j+1;
+	}
+	
+	printf("\n");
+	for (i=0; i<people; i++){
+		if (i != 0) {
+			printf(" > %d", index[i]);
+		} else {
+			printf("%d", index[i]);
+		}
+	}
+	printf("\n");
+
+ 	return 0;  
+} 
