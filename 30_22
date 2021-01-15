@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include<stdlib.h>
+
+int main()
+{ 
+	int n1, n2, n12;
+	int m;
+	
+	scanf("%d %d", &n1, &n2);
+	printf("\n");
+	
+	n12 = n1 * n2;
+		
+	for (int i=1; i<=n12; i++){
+		if((i % n1 == 0) && (i % n2 == 0)){
+			m = i;
+			break;
+		}	
+	}
+	
+	printf("%d", m);
+	
+ return 0;  
+} 
