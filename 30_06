@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include<stdlib.h>
+
+int main()
+{ 
+	float s1, s2, s3;
+	float com1, com2, com3;
+	
+	scanf("%d %d %d", &s1, &s2, &s3);
+	
+	com1 = s2 + s3;
+	com2 = s1 + s3;
+	com3 = s1 + s2;
+	
+	if(com1>s1 && com2>s2 && com3>s3) printf("fit");
+	else printf("unfit");
+ 
+ return 0;  
+} 
